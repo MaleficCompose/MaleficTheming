@@ -1,0 +1,41 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:xyz.malefic.theme.util////PointingToDeclaration/-malefic-theming/xyz.malefic.theme.util/index.html
+$dokka.location:xyz.malefic.theme.util//loadThemeFromJson/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.theme.util/load-theme-from-json.html
+$dokka.location:xyz.malefic.theme.util//parseHexColor/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.theme.util/parse-hex-color.html
+$dokka.location:xyz.malefic.theme////PointingToDeclaration/-malefic-theming/xyz.malefic.theme/index.html
+$dokka.location:xyz.malefic.theme//MaleficTheme/#kotlin.String#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-malefic-theme.html
+$dokka.location:xyz.malefic.theme//MaleficTheme/#xyz.malefic.theme.ThemeConfig#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-malefic-theme.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig///PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/index.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/SerializableThemeConfig/#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/-serializable-theme-config.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/background/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/background.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/error/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/error.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/isLight/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/is-light.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/onBackground/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/on-background.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/onError/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/on-error.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/onPrimary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/on-primary.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/onSecondary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/on-secondary.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/onSurface/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/on-surface.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/primary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/primary.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/primaryVariant/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/primary-variant.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/secondary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/secondary.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/secondaryVariant/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/secondary-variant.html
+$dokka.location:xyz.malefic.theme/SerializableThemeConfig/surface/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-serializable-theme-config/surface.html
+$dokka.location:xyz.malefic.theme/ThemeConfig///PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/index.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/ThemeConfig/#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#kotlin.Boolean/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/-theme-config.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/background/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/background.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/error/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/error.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/isLight/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/is-light.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/onBackground/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/on-background.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/onError/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/on-error.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/onPrimary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/on-primary.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/onSecondary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/on-secondary.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/onSurface/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/on-surface.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/primary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/primary.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/primaryVariant/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/primary-variant.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/secondary/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/secondary.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/secondaryVariant/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/secondary-variant.html
+$dokka.location:xyz.malefic.theme/ThemeConfig/surface/#/PointingToDeclaration/-malefic-theming/xyz.malefic.theme/-theme-config/surface.html
+xyz.malefic.theme
+xyz.malefic.theme.util
+
