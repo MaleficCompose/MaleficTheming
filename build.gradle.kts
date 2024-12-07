@@ -5,7 +5,7 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
   kotlin("jvm")
-  kotlin("plugin.serialization") version "1.9.0"
+  kotlin("plugin.serialization") version "2.1.0"
   id("org.jetbrains.compose")
   id("org.jetbrains.kotlin.plugin.compose")
   alias(libs.plugins.spotless)
