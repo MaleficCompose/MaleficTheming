@@ -35,10 +35,11 @@ module.exports = {
   // it needs to match the value for field type. Eg.: 'chore'
   scopeOverrides: {
     chore: [
-      {name: 'dokka'},
       {name: 'github'},
       {name: 'gradle'},
+      {name: 'dokka'},
       {name: 'cz'},
+      {name: 'readme'},
     ]
   },
   // override the messages, defaults are as follows
