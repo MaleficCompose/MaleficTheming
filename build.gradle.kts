@@ -27,8 +27,8 @@ repositories {
 dependencies {
   implementation(compose.desktop.common)
   implementation(libs.json)
-  testImplementation(kotlin("test"))
   testImplementation(compose.desktop.currentOs)
+  testImplementation(kotlin("test"))
 }
 
 spotless {
