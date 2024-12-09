@@ -2,6 +2,7 @@ package xyz.malefic.theme
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
+import java.io.InputStream
 import xyz.malefic.theme.util.loadThemeFromJson
 
 /**
@@ -36,13 +37,14 @@ fun MaleficTheme(themeConfig: ThemeConfig, content: @Composable () -> Unit) {
 }
 
 /**
- * Loads a theme configuration from a JSON file and applies the Malefic theme to the given content.
+ * Loads a theme configuration from an InputStream and applies the Malefic theme to the given
+ * content.
  *
- * @param filePath The path to the JSON file containing the theme configuration.
+ * @param inputStream The InputStream containing the theme configuration.
  * @param content The composable content to which the theme will be applied.
  */
 @Composable
-fun MaleficTheme(filePath: String, content: @Composable () -> Unit) {
-  val themeConfig = loadThemeFromJson(filePath)
+fun MaleficTheme(inputStream: InputStream, content: @Composable () -> Unit) {
+  val themeConfig = loadThemeFromJson(inputStream)
   MaleficTheme(themeConfig, content)
 }
