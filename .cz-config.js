@@ -1,7 +1,7 @@
 module.exports = {
   types: [
     {value: 'feat', name: 'feat:     A new feature'},
-    {value: 'version', name: 'version:     A new version in maven central'},
+    {value: 'version', name: 'version:  A new version in maven central'},
     {value: 'fix', name: 'fix:      A bug fix'},
     {value: 'docs', name: 'docs:     Documentation only changes'},
     {
@@ -43,9 +43,9 @@ module.exports = {
       {name: 'readme'},
     ],
     version: [
-      {name: '1.1.0'},
-      {name: '1.1.1'},
       {name: '1.1.2'},
+      {name: '1.1.3'},
+      {name: '1.1.4'},
     ]
   },
   // override the messages, defaults are as follows
