@@ -43,9 +43,9 @@ module.exports = {
       {name: 'readme'},
     ],
     version: [
-      {name: '1.2.0'},
-      {name: '1.2.1'},
-      {name: '1.2.2'},
+      {name: '1.1.0'},
+      {name: '1.1.1'},
+      {name: '1.1.2'},
     ]
   },
   // override the messages, defaults are as follows

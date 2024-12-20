@@ -4,7 +4,7 @@ val user = "MaleficCompose"
 val repo = "MaleficTheming"
 val g = "xyz.malefic.compose"
 val artifact = "theming"
-val v = "1.1.0"
+val v = "1.1.1"
 val desc = "A Compose Desktop library for creating and managing material themes"
 
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())

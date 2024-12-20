@@ -1,9 +1,9 @@
-package xyz.malefic.theme.util
+package xyz.malefic.compose.theming.util
 
 import androidx.compose.ui.graphics.Color
 import kotlinx.serialization.json.Json
-import xyz.malefic.theme.SerializableThemeConfig
-import xyz.malefic.theme.ThemeConfig
+import xyz.malefic.compose.theming.SerializableThemeConfig
+import xyz.malefic.compose.theming.ThemeConfig
 import java.io.InputStream
 
 /**

@@ -2,7 +2,7 @@
 
 # MaleficTheming
 
-![Maven Central Version](https://img.shields.io/maven-central/v/xyz.malefic/malefictheming)
+![Maven Central Version](https://img.shields.io/maven-central/v/xyz.malefic.compose/theming)
 
 > A Compose Desktop library for creating and managing material themes
 
@@ -12,8 +12,8 @@
 
 ## ⌨️ Usage
 
-1. Get the artifact from the [central repo](https://central.sonatype.com/artifact/xyz.malefic/malefictheming)
-2. Set up the MaleficTheme from `xyz.malefic.theme.MaleficTheme` with either direct color inputs or a json file with all the necessities
+1. Get the artifact from the [central repo](https://central.sonatype.com/artifact/xyz.malefic.compose/theming)
+2. Set up the MaleficTheme from `xyz.malefic.compose.theming.MaleficTheme` with either direct color inputs or a json file with all the necessities
 3. Read [the documentation]() for more details
 
 ## 🏗 Project Status

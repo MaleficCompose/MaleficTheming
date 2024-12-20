@@ -1,4 +1,4 @@
-package xyz.malefic.theme
+package xyz.malefic.compose.theming
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

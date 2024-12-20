@@ -1,10 +1,10 @@
 @file:Suppress("ktlint:standard:function-naming")
 
-package xyz.malefic.theme
+package xyz.malefic.compose.theming
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import xyz.malefic.theme.util.loadThemeFromJson
+import xyz.malefic.compose.theming.util.loadThemeFromJson
 import java.io.InputStream
 
 /**
