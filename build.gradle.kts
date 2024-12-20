@@ -1,115 +1,123 @@
 import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
 
-val v = "1.0.2"
+val user = "MaleficCompose"
+val repo = "MaleficTheming"
+val g = "xyz.malefic.compose"
+val artifact = "theming"
+val v = "1.1.0"
+val desc = "A Compose Desktop library for creating and managing material themes"
+
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
-  kotlin("jvm")
-  kotlin("plugin.serialization") version "2.1.0"
-  id("org.jetbrains.compose")
-  id("org.jetbrains.kotlin.plugin.compose")
-  alias(libs.plugins.spotless)
-  alias(libs.plugins.central)
-  alias(libs.plugins.dokka)
-  `maven-publish`
-  signing
+    alias(libs.plugins.compose.kotlin)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.spotless)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.central)
+    alias(libs.plugins.dokka)
+    `maven-publish`
+    signing
 }
 
-group = "xyz.malefic"
+group = g
 version = v
 
 repositories {
-  mavenCentral()
-  maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-  google()
+    mavenCentral()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    google()
 }
 
 dependencies {
-  implementation(compose.desktop.common)
-  implementation(libs.json)
-  testImplementation(compose.desktop.currentOs)
-  testImplementation(kotlin("test"))
+    implementation(compose.desktop.common)
+    implementation(libs.json)
+    testImplementation(compose.desktop.currentOs)
+    testImplementation(kotlin("test"))
 }
 
 spotless {
-  kotlin {
-    ktfmt().googleStyle()
-  }
+    kotlin {
+        ktlint()
+    }
 }
 
 java {
-  sourceCompatibility = JavaVersion.VERSION_17
-  targetCompatibility = JavaVersion.VERSION_17
-  withJavadocJar()
-  withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    withJavadocJar()
+    withSourcesJar()
 }
 
 kotlin {
-  jvmToolchain {
-    this.languageVersion.set(JavaLanguageVersion.of(17))
-  }
+    jvmToolchain {
+        this.languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
 
 publishing {
-  publications {
-    create<MavenPublication>("maven") {
-      groupId = "xyz.malefic"
-      artifactId = "malefictheming"
-      version = v
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = g
+            artifactId = artifact
+            version = v
 
-      from(components["java"])
+            from(components["java"])
 
-      pom {
-        name.set("MaleficTheming")
-        description.set("A Compose Desktop library for creating and managing material themes")
-        url.set("https://github.com/MaleficCompose/MaleficTheming")
-        developers {
-          developer {
-            name.set("Om Gupta")
-            email.set("ogupta4242@gmail.com")
-          }
+            pom {
+                name.set(repo)
+                description.set(desc)
+                url.set("https://github.com/$user/$repo")
+                developers {
+                    developer {
+                        name.set("Om Gupta")
+                        email.set("ogupta4242@gmail.com")
+                    }
+                }
+                licenses {
+                    license {
+                        name.set("MIT License")
+                        url.set("https://opensource.org/licenses/MIT")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/$user/$repo.git")
+                    developerConnection.set("scm:git:ssh://github.com/$user/$repo.git")
+                    url.set("https://github.com/$user/$repo")
+                }
+            }
         }
-        licenses {
-          license {
-            name.set("MIT License")
-            url.set("https://opensource.org/licenses/MIT")
-          }
+        repositories {
+            maven {
+                url = localMavenRepo
+            }
         }
-        scm {
-          connection.set("scm:git:git://github.com/MaleficCompose/MaleficTheming.git")
-          developerConnection.set("scm:git:ssh://github.com/MaleficCompose/MaleficTheming.git")
-          url.set("https://github.com/MaleficCompose/MaleficTheming")
-        }
-      }
     }
-    repositories {
-      maven {
-        url = localMavenRepo
-      }
-    }
-  }
 }
 
 signing {
-  useGpgCmd()
-  sign(publishing.publications)
+    useGpgCmd()
+    sign(publishing.publications)
 }
 
 centralPortalPlus {
-  url = localMavenRepo
-  username = System.getenv("centralPortalUsername") ?: ""
-  password = System.getenv("centralPortalPassword") ?: ""
-  publishingType = PublishingType.AUTOMATIC
+    url = localMavenRepo
+    username = System.getenv("centralPortalUsername") ?: ""
+    password = System.getenv("centralPortalPassword") ?: ""
+    publishingType = PublishingType.AUTOMATIC
 }
 
 tasks.apply {
-  dokkaHtml {
-    outputDirectory.set(layout.buildDirectory.dir("dokka"))
-  }
-  test {
-    useJUnitPlatform()
-  }
-  build {
-    dependsOn(spotlessApply)
-  }
+    build {
+        dependsOn(dokkaGenerate)
+    }
+    test {
+        useJUnitPlatform()
+    }
+}
+
+dokka {
+    dokkaPublications.html {
+        outputDirectory.set(layout.buildDirectory.dir("dokka"))
+    }
 }

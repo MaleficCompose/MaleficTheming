@@ -22,19 +22,19 @@ import kotlinx.serialization.Serializable
  * @property isLight A boolean indicating if the theme is light or dark.
  */
 data class ThemeConfig(
-  val primary: Color,
-  val primaryVariant: Color,
-  val secondary: Color,
-  val secondaryVariant: Color,
-  val background: Color,
-  val surface: Color,
-  val error: Color,
-  val onPrimary: Color,
-  val onSecondary: Color,
-  val onBackground: Color,
-  val onSurface: Color,
-  val onError: Color,
-  val isLight: Boolean,
+    val primary: Color,
+    val primaryVariant: Color,
+    val secondary: Color,
+    val secondaryVariant: Color,
+    val background: Color,
+    val surface: Color,
+    val error: Color,
+    val onPrimary: Color,
+    val onSecondary: Color,
+    val onBackground: Color,
+    val onSurface: Color,
+    val onError: Color,
+    val isLight: Boolean,
 )
 
 /**
@@ -63,17 +63,17 @@ data class ThemeConfig(
  */
 @Serializable
 data class SerializableThemeConfig(
-  val primary: String,
-  val primaryVariant: String,
-  val secondary: String,
-  val secondaryVariant: String,
-  val background: String,
-  val surface: String,
-  val error: String,
-  val onPrimary: String,
-  val onSecondary: String,
-  val onBackground: String,
-  val onSurface: String,
-  val onError: String,
-  val isLight: Boolean,
+    val primary: String,
+    val primaryVariant: String,
+    val secondary: String,
+    val secondaryVariant: String,
+    val background: String,
+    val surface: String,
+    val error: String,
+    val onPrimary: String,
+    val onSecondary: String,
+    val onBackground: String,
+    val onSurface: String,
+    val onError: String,
+    val isLight: Boolean,
 )
