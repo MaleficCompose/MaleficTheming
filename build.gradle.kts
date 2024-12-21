@@ -4,15 +4,16 @@ val user = "MaleficCompose"
 val repo = "MaleficTheming"
 val g = "xyz.malefic.compose"
 val artifact = "theming"
-val v = "1.1.1"
+val v = "1.1.2"
 val desc = "A Compose Desktop library for creating and managing material themes"
 
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
     alias(libs.plugins.compose.kotlin)
+    alias(libs.plugins.json.serial)
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.spotless)
+    alias(libs.plugins.kotlinter)
     alias(libs.plugins.compose)
     alias(libs.plugins.central)
     alias(libs.plugins.dokka)
@@ -34,12 +35,6 @@ dependencies {
     implementation(libs.json)
     testImplementation(compose.desktop.currentOs)
     testImplementation(kotlin("test"))
-}
-
-spotless {
-    kotlin {
-        ktlint()
-    }
 }
 
 java {
@@ -108,11 +103,24 @@ centralPortalPlus {
 }
 
 tasks.apply {
+    create("formatAndLintKotlin") {
+        group = "formatting"
+        description = "Fix Kotlin code style deviations with kotlinter"
+        dependsOn(formatKotlin)
+        dependsOn(lintKotlin)
+    }
     build {
+        dependsOn(named("formatAndLintKotlin"))
         dependsOn(dokkaGenerate)
+    }
+    publish {
+        dependsOn(named("formatAndLintKotlin"))
     }
     test {
         useJUnitPlatform()
+    }
+    check {
+        dependsOn("installKotlinterPrePushHook")
     }
 }
 
