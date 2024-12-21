@@ -2,7 +2,7 @@
 central = "1.2.5"
 dokka = "2.0.0"
 json = "1.7.3"
-compose = "1.8.0-alpha01"
+compose = "1.8.0-dev1920"
 kotlin = "2.1.0"
 kotlinter = "5.0.1"
 
