@@ -4,7 +4,7 @@ dokka = "2.0.0"
 json = "1.8.1"
 compose = "1.8.10-alpha01"
 kotlin = "2.1.21"
-kotlinter = "5.0.2"
+kotlinter = "5.1.1"
 
 [libraries]
 json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "json" }
