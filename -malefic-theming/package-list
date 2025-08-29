@@ -2,10 +2,17 @@ $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:xyz.malefic.compose.theming.util////PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/index.html
 $dokka.location:xyz.malefic.compose.theming.util//loadThemeFromJson/#java.io.InputStream/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/load-theme-from-json.html
+$dokka.location:xyz.malefic.compose.theming.util//loadThemeFromJsonString/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/load-theme-from-json-string.html
+$dokka.location:xyz.malefic.compose.theming.util//loadThemeFromResource/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/load-theme-from-resource.html
 $dokka.location:xyz.malefic.compose.theming.util//parseHexColor/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/parse-hex-color.html
+$dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader///PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/index.html
+$dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader/PlatformFileReader/#/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/-platform-file-reader.html
+$dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader/readText/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/read-text.html
 $dokka.location:xyz.malefic.compose.theming////PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/index.html
 $dokka.location:xyz.malefic.compose.theming//MaleficTheme/#java.io.InputStream#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-malefic-theme.html
 $dokka.location:xyz.malefic.compose.theming//MaleficTheme/#xyz.malefic.compose.theming.ThemeConfig#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-malefic-theme.html
+$dokka.location:xyz.malefic.compose.theming//MaleficThemeFromJson/#kotlin.String#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-malefic-theme-from-json.html
+$dokka.location:xyz.malefic.compose.theming//MaleficThemeFromResource/#kotlin.String#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-malefic-theme-from-resource.html
 $dokka.location:xyz.malefic.compose.theming/SerializableThemeConfig///PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-serializable-theme-config/index.html
 $dokka.location:xyz.malefic.compose.theming/SerializableThemeConfig/SerializableThemeConfig/#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.String#kotlin.Boolean/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-serializable-theme-config/-serializable-theme-config.html
 $dokka.location:xyz.malefic.compose.theming/SerializableThemeConfig/background/#/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-serializable-theme-config/background.html
