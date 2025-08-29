@@ -1,9 +1,13 @@
 package xyz.malefic.compose.theming.util
 
+import kotlinx.serialization.json.Json
+import xyz.malefic.compose.theming.SerializableThemeConfig
+import xyz.malefic.compose.theming.ThemeConfig
+
 /**
  * Platform-specific file reader for loading theme configurations.
  */
-expect class PlatformFileReader {
+expect class PlatformFileReader() {
     /**
      * Reads text content from a platform-specific resource or file.
      *
@@ -21,7 +25,7 @@ expect class PlatformFileReader {
  * @throws IllegalArgumentException If the JSON file contains invalid color hex strings.
  */
 fun loadThemeFromJsonString(jsonContent: String): ThemeConfig {
-    val parsedConfig: SerializableThemeConfig = kotlinx.serialization.json.Json.decodeFromString(jsonContent)
+    val parsedConfig: SerializableThemeConfig = Json.decodeFromString(jsonContent)
     return ThemeConfig(
         primary = parseHexColor(parsedConfig.primary),
         primaryVariant = parseHexColor(parsedConfig.primaryVariant),

@@ -13,6 +13,7 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.compose.kotlin)
     alias(libs.plugins.json.serial)
     alias(libs.plugins.kotlinter)
@@ -34,6 +35,13 @@ repositories {
 
 kotlin {
     jvm()
+
+    androidTarget {
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_1_8)
+        }
+    }
 
     iosX64()
     iosArm64()
@@ -62,6 +70,11 @@ kotlin {
                 implementation(compose.desktop.currentOs)
             }
         }
+        val androidMain by getting {
+            dependencies {
+                implementation(compose.material)
+            }
+        }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -74,6 +87,20 @@ kotlin {
                 implementation(compose.material)
             }
         }
+    }
+}
+
+android {
+    namespace = "xyz.malefic.compose.theming"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
+
+    defaultConfig {
+        minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 

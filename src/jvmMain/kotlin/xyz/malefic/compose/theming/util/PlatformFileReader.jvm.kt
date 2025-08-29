@@ -1,6 +1,7 @@
 package xyz.malefic.compose.theming.util
 
 import java.io.InputStream
+import xyz.malefic.compose.theming.ThemeConfig
 
 /**
  * JVM implementation of PlatformFileReader.

@@ -49,7 +49,7 @@ fun MaleficTheme(
  * @param content The composable content to which the theme will be applied.
  */
 @Composable
-fun MaleficTheme(
+fun MaleficThemeFromJson(
     jsonContent: String,
     content: @Composable () -> Unit,
 ) {
@@ -65,7 +65,7 @@ fun MaleficTheme(
  * @param content The composable content to which the theme will be applied.
  */
 @Composable
-fun MaleficTheme(
+fun MaleficThemeFromResource(
     resourcePath: String,
     content: @Composable () -> Unit,
 ) {
