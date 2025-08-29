@@ -4,17 +4,68 @@
 
 ![Maven Central Version](https://img.shields.io/maven-central/v/xyz.malefic.compose/theming)
 
-> A Compose Desktop library for creating and managing material themes
+> A Compose Multiplatform library for creating and managing material themes across JVM Desktop and iOS
 
 ## 🦿 Prerequisites
 
 - Java 17 or above
+- For iOS: Xcode and iOS 13+
 
 ## ⌨️ Usage
 
 1. Get the artifact from the [central repo](https://central.sonatype.com/artifact/xyz.malefic.compose/theming)
-2. Set up the MaleficTheme from `xyz.malefic.compose.theming.MaleficTheme` with either direct color inputs or a json file with all the necessities
+2. Set up the MaleficTheme from `xyz.malefic.compose.theming.MaleficTheme` with:
+   - Direct `ThemeConfig` objects
+   - JSON strings (cross-platform)
+   - Resource paths (platform-specific)
+   - InputStream (JVM Desktop only, for backward compatibility)
 3. Read [the documentation]() for more details
+
+### Platform-Specific Dependencies
+
+Add the library to your `build.gradle.kts`:
+
+```kotlin
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("xyz.malefic.compose:theming:1.1.2")
+            }
+        }
+    }
+}
+```
+
+### API Examples
+
+```kotlin
+// Cross-platform: Using ThemeConfig directly
+MaleficTheme(
+    themeConfig = ThemeConfig(/* your colors */),
+    content = { /* your UI */ }
+)
+
+// Cross-platform: Using JSON string
+val themeJson = """{"primary": "#FF6200EE", ...}"""
+MaleficTheme(
+    jsonContent = themeJson,
+    content = { /* your UI */ }
+)
+
+// JVM Desktop only: Using InputStream (backward compatibility)
+val inputStream = this::class.java.getResourceAsStream("/theme.json")
+MaleficTheme(
+    inputStream = inputStream!!,
+    content = { /* your UI */ }
+)
+```
+
+## 🎯 Supported Platforms
+
+- ✅ **JVM Desktop** (Compose Desktop)
+- ✅ **iOS** (Compose Multiplatform)
+- 🔄 **Android** (Jetpack Compose) - Coming soon
 
 ## 🏗 Project Status
 
