@@ -4,8 +4,8 @@ package xyz.malefic.compose.theming
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import xyz.malefic.compose.theming.util.loadThemeFromJson
-import java.io.InputStream
+import xyz.malefic.compose.theming.util.loadThemeFromJsonString
+import xyz.malefic.compose.theming.util.loadThemeFromResource
 
 /**
  * Applies the Malefic theme to the given content.
@@ -42,17 +42,33 @@ fun MaleficTheme(
 }
 
 /**
- * Loads a theme configuration from an InputStream and applies the Malefic theme to the given
+ * Loads a theme configuration from a JSON string and applies the Malefic theme to the given
  * content.
  *
- * @param inputStream The InputStream containing the theme configuration.
+ * @param jsonContent The JSON string containing the theme configuration.
  * @param content The composable content to which the theme will be applied.
  */
 @Composable
 fun MaleficTheme(
-    inputStream: InputStream,
+    jsonContent: String,
     content: @Composable () -> Unit,
 ) {
-    val themeConfig = loadThemeFromJson(inputStream)
+    val themeConfig = loadThemeFromJsonString(jsonContent)
+    MaleficTheme(themeConfig, content)
+}
+
+/**
+ * Loads a theme configuration from a platform-specific resource and applies the Malefic theme to the given
+ * content.
+ *
+ * @param resourcePath The path to the resource containing the theme configuration.
+ * @param content The composable content to which the theme will be applied.
+ */
+@Composable
+fun MaleficTheme(
+    resourcePath: String,
+    content: @Composable () -> Unit,
+) {
+    val themeConfig = loadThemeFromResource(resourcePath)
     MaleficTheme(themeConfig, content)
 }
