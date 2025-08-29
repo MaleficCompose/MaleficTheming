@@ -1,20 +1,30 @@
 package xyz.malefic.compose.theming.util
 
-import androidx.compose.ui.graphics.Color
 import kotlinx.serialization.json.Json
 import xyz.malefic.compose.theming.SerializableThemeConfig
 import xyz.malefic.compose.theming.ThemeConfig
-import java.io.InputStream
 
 /**
- * Loads a theme configuration from a JSON input stream.
+ * Platform-specific file reader for loading theme configurations.
+ */
+expect class PlatformFileReader() {
+    /**
+     * Reads text content from a platform-specific resource or file.
+     *
+     * @param resourcePath The path to the resource or file.
+     * @return The text content of the resource or file.
+     */
+    fun readText(resourcePath: String): String
+}
+
+/**
+ * Loads a theme configuration from a JSON string.
  *
- * @param inputStream The input stream containing the JSON theme configuration.
+ * @param jsonContent The JSON string containing the theme configuration.
  * @return A ThemeConfig object representing the loaded theme configuration.
  * @throws IllegalArgumentException If the JSON file contains invalid color hex strings.
  */
-fun loadThemeFromJson(inputStream: InputStream): ThemeConfig {
-    val jsonContent = inputStream.bufferedReader().use { it.readText() }
+fun loadThemeFromJsonString(jsonContent: String): ThemeConfig {
     val parsedConfig: SerializableThemeConfig = Json.decodeFromString(jsonContent)
     return ThemeConfig(
         primary = parseHexColor(parsedConfig.primary),
@@ -34,25 +44,14 @@ fun loadThemeFromJson(inputStream: InputStream): ThemeConfig {
 }
 
 /**
- * Parses a hex color string and returns a Color object.
+ * Loads a theme configuration from a platform-specific resource path.
  *
- * @param hex The hex color string to parse. It can be in the format of #RRGGBB or #AARRGGBB.
- * @return A Color object representing the parsed color.
- * @throws IllegalArgumentException If the hex string is not in a valid format.
+ * @param resourcePath The path to the resource containing the JSON theme configuration.
+ * @return A ThemeConfig object representing the loaded theme configuration.
+ * @throws IllegalArgumentException If the JSON file contains invalid color hex strings.
  */
-fun parseHexColor(hex: String): Color {
-    val cleanedHex = hex.removePrefix("#")
-    return when (cleanedHex.length) {
-        6 -> {
-            // If 6 characters (RGB), prepend alpha value (FF for full opacity)
-            val colorValue = cleanedHex.toLong(16) or (0xFF000000)
-            Color(colorValue.toInt())
-        }
-        8 -> {
-            // If 8 characters (ARGB), parse directly
-            val colorValue = cleanedHex.toLong(16)
-            Color(colorValue.toInt())
-        }
-        else -> throw IllegalArgumentException("Invalid color hex string: $hex")
-    }
+fun loadThemeFromResource(resourcePath: String): ThemeConfig {
+    val fileReader = PlatformFileReader()
+    val jsonContent = fileReader.readText(resourcePath)
+    return loadThemeFromJsonString(jsonContent)
 }
