@@ -24,7 +24,7 @@ permissions:
 jobs:
   publish:
     name: Release Build and Publish
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v5
@@ -44,12 +44,11 @@ jobs:
         run: chmod +x gradlew
 
       - name: Install xmllint
-        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+        run: brew install libxml2 && brew link --force libxml2
 
       - name: Bump version in gradle.properties
         id: bump_version
         run: |
-          # Bash
           file="gradle.properties"
           if [ -n "${{ github.event.inputs.custom_version }}" ]; then
           new_version="${{ github.event.inputs.custom_version }}"
@@ -67,7 +66,7 @@ jobs:
           esac
           new_version="$major.$minor.$patch"
           fi
-          sed -i "s/^v=.*/v=$new_version/" "$file"
+          sed -i '' "s/^v=.*/v=$new_version/" "$file"
           echo "new_version=$new_version" >> $GITHUB_OUTPUT
 
       - name: Commit and push version bump
