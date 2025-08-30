@@ -1,5 +1,7 @@
 package xyz.malefic.compose.theming.util
 
+import kotlinx.cinterop.BetaInteropApi
+import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.cinterop.ObjCObjectVar
 import kotlinx.cinterop.alloc
 import kotlinx.cinterop.memScoped
@@ -9,7 +11,6 @@ import platform.Foundation.NSBundle
 import platform.Foundation.NSError
 import platform.Foundation.NSString
 import platform.Foundation.NSUTF8StringEncoding
-import platform.Foundation.localizedDescription
 import platform.Foundation.stringWithContentsOfFile
 
 /**
@@ -24,6 +25,7 @@ actual class PlatformFileReader {
      * @return The text content of the resource file.
      * @throws IllegalArgumentException If the resource is not found.
      */
+    @OptIn(ExperimentalForeignApi::class, BetaInteropApi::class)
     actual fun readText(resourcePath: String): String {
         val bundle = NSBundle.mainBundle
 
@@ -50,25 +52,24 @@ actual class PlatformFileReader {
                 )
 
         // Read the content of the file
-        val error =
-            memScoped {
-                val errorPtr = alloc<ObjCObjectVar<NSError?>>()
-                val content =
-                    NSString.stringWithContentsOfFile(
-                        path,
-                        encoding = NSUTF8StringEncoding,
-                        error = errorPtr.ptr,
-                    )
+        memScoped {
+            val errorPtr = alloc<ObjCObjectVar<NSError?>>()
+            val content =
+                NSString.stringWithContentsOfFile(
+                    path,
+                    encoding = NSUTF8StringEncoding,
+                    error = errorPtr.ptr,
+                )
 
-                if (content != null) {
-                    return content.toString()
-                } else {
-                    val error = errorPtr.value
-                    throw IllegalArgumentException(
-                        "Failed to read resource: $resourcePath. Error: ${error?.localizedDescription}",
-                    )
-                }
+            if (content != null) {
+                return content
+            } else {
+                val error = errorPtr.value
+                throw IllegalArgumentException(
+                    "Failed to read resource: $resourcePath. Error: ${error?.localizedDescription}",
+                )
             }
+        }
     }
 }
 
@@ -80,6 +81,7 @@ actual class PlatformFileReader {
  * @return The text content of the resource file.
  * @throws IllegalArgumentException If the resource is not found.
  */
+@OptIn(ExperimentalForeignApi::class, BetaInteropApi::class)
 fun readBundleResource(
     resourceName: String,
     fileExtension: String = "json",

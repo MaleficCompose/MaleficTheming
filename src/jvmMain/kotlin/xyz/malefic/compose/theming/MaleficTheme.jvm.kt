@@ -1,5 +1,3 @@
-@file:Suppress("ktlint:standard:function-naming")
-
 package xyz.malefic.compose.theming
 
 import androidx.compose.runtime.Composable
