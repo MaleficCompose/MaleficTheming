@@ -59,13 +59,42 @@ MaleficTheme(
     inputStream = inputStream!!,
     content = { /* your UI */ }
 )
+
+// Android: Using assets with context
+PlatformFileReader.context = this // Set context first
+val themeFromAssets = loadThemeFromResource("themes/light.json")
+MaleficTheme(
+    themeConfig = themeFromAssets,
+    content = { /* your UI */ }
+)
+
+// Android: Alternative approach with helper function
+val themeContent = readThemeAsset(context, "themes/light.json")
+MaleficTheme(
+    jsonContent = themeContent,
+    content = { /* your UI */ }
+)
+
+// iOS: Using bundle resources
+val themeFromBundle = loadThemeFromResource("light.json")
+MaleficTheme(
+    themeConfig = themeFromBundle,
+    content = { /* your UI */ }
+)
+
+// iOS: Alternative approach with helper function
+val themeContent = readBundleResource("light", "json")
+MaleficTheme(
+    jsonContent = themeContent,
+    content = { /* your UI */ }
+)
 ```
 
 ## 🎯 Supported Platforms
 
 - ✅ **JVM Desktop** (Compose Desktop)
 - ✅ **iOS** (Compose Multiplatform)
-- 🔄 **Android** (Jetpack Compose) - Coming soon
+- ✅ **Android** (Jetpack Compose)
 
 ## ✍️ Author
 
