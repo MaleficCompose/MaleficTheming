@@ -7,10 +7,9 @@ $dokka.location:xyz.malefic.compose.theming.util//loadThemeFromResource/#kotlin.
 $dokka.location:xyz.malefic.compose.theming.util//parseHexColor/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/parse-hex-color.html
 $dokka.location:xyz.malefic.compose.theming.util//readBundleResource/#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/read-bundle-resource.html
 $dokka.location:xyz.malefic.compose.theming.util//readThemeAsset/#android.content.Context#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/read-theme-asset.html
-$dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader.Companion///PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/-companion/index.html
-$dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader.Companion/context/#/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/-companion/context.html
 $dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader///PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/index.html
 $dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader/PlatformFileReader/#/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/-platform-file-reader.html
+$dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader/init/#android.content.Context/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/init.html
 $dokka.location:xyz.malefic.compose.theming.util/PlatformFileReader/readText/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/-platform-file-reader/read-text.html
 $dokka.location:xyz.malefic.compose.theming////PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/index.html
 $dokka.location:xyz.malefic.compose.theming//MaleficTheme/#java.io.InputStream#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming/-malefic-theme.html
