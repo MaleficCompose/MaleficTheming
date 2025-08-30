@@ -1,7 +1,7 @@
 package xyz.malefic.compose.theming.util
 
-import java.io.InputStream
 import xyz.malefic.compose.theming.ThemeConfig
+import java.io.InputStream
 
 /**
  * JVM implementation of PlatformFileReader.
@@ -14,8 +14,9 @@ actual class PlatformFileReader {
      * @return The text content of the resource or file.
      */
     actual fun readText(resourcePath: String): String {
-        val inputStream: InputStream = this::class.java.getResourceAsStream(resourcePath)
-            ?: throw IllegalArgumentException("Resource not found: $resourcePath")
+        val inputStream: InputStream =
+            this::class.java.getResourceAsStream(resourcePath)
+                ?: throw IllegalArgumentException("Resource not found: $resourcePath")
         return inputStream.bufferedReader().use { it.readText() }
     }
 }
