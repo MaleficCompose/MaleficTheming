@@ -131,15 +131,6 @@ mavenPublishing {
 
     coordinates(g, artifact, v)
 
-    // Ensure all targets are published
-    configure(
-        com.vanniktech.maven.publish.KotlinMultiplatform(
-            javadocJar = com.vanniktech.maven.publish.JavadocJar.Dokka("dokkaGeneratePublicationHtml"),
-            sourcesJar = true,
-            androidVariantsToPublish = listOf("release"),
-        )
-    )
-
     pom {
         name = repo
         description = desc
