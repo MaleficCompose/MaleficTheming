@@ -42,45 +42,25 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
-    @Suppress("unused")
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                implementation(compose.material)
-                implementation(libs.json)
-            }
+        commonMain.dependencies {
+            implementation(compose.material)
+            implementation(libs.json)
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+        commonTest.dependencies {
+            implementation(kotlin("test"))
         }
-        val jvmMain by getting {
-            dependencies {
-                implementation(compose.desktop.common)
-            }
+        jvmMain.dependencies {
+            implementation(compose.desktop.common)
         }
-        val jvmTest by getting {
-            dependencies {
-                implementation(compose.desktop.currentOs)
-            }
+        jvmTest.dependencies {
+            implementation(compose.desktop.currentOs)
         }
-        val androidMain by getting {
-            dependencies {
-                implementation(compose.material)
-            }
+        androidMain.dependencies {
+            implementation(compose.material)
         }
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-            dependencies {
-                implementation(compose.material)
-            }
+        iosMain.dependencies {
+            implementation(compose.material)
         }
     }
 }
@@ -150,6 +130,15 @@ mavenPublishing {
     signAllPublications()
 
     coordinates(g, artifact, v)
+
+    // Ensure all targets are published
+    configure(
+        com.vanniktech.maven.publish.KotlinMultiplatform(
+            javadocJar = com.vanniktech.maven.publish.JavadocJar.Dokka("dokkaGeneratePublicationHtml"),
+            sourcesJar = true,
+            androidVariantsToPublish = listOf("release"),
+        )
+    )
 
     pom {
         name = repo
