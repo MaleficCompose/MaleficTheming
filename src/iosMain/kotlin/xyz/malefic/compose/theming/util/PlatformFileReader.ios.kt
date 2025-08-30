@@ -1,29 +1,112 @@
 package xyz.malefic.compose.theming.util
 
+import kotlinx.cinterop.ObjCObjectVar
+import kotlinx.cinterop.alloc
+import kotlinx.cinterop.memScoped
+import kotlinx.cinterop.ptr
+import kotlinx.cinterop.value
+import platform.Foundation.NSBundle
+import platform.Foundation.NSError
+import platform.Foundation.NSString
+import platform.Foundation.NSUTF8StringEncoding
+import platform.Foundation.localizedDescription
+import platform.Foundation.stringWithContentsOfFile
+
 /**
  * iOS implementation of PlatformFileReader.
  */
 actual class PlatformFileReader {
     /**
      * Reads text content from an iOS bundle resource.
-     * For iOS, this function assumes the resource is in the main bundle.
+     * For iOS, this function reads from the main bundle.
      *
      * @param resourcePath The path to the resource file (e.g., "light.json").
      * @return The text content of the resource file.
      * @throws IllegalArgumentException If the resource is not found.
      */
     actual fun readText(resourcePath: String): String {
-        // For iOS, this is a placeholder implementation.
-        // In practice, you would use NSBundle to read resources:
-        // val bundle = NSBundle.mainBundle()
-        // val path = bundle.pathForResource(resourceName, ofType: "json")
-        // val content = NSString.stringWithContentsOfFile(path!!, encoding = NSUTF8StringEncoding, error = null)
+        val bundle = NSBundle.mainBundle
 
-        // For now, we'll throw an exception suggesting the use of loadThemeFromJsonString instead
-        throw IllegalArgumentException(
-            "Direct resource loading is not supported on iOS platform. " +
-                "Please use loadThemeFromJsonString() and provide the JSON content directly, " +
-                "or read the file content using iOS NSBundle and pass it to the function.",
-        )
+        // Extract filename and extension
+        val pathComponents = resourcePath.split(".")
+        val fileName =
+            if (pathComponents.size > 1) {
+                pathComponents.dropLast(1).joinToString(".")
+            } else {
+                resourcePath
+            }
+        val fileExtension =
+            if (pathComponents.size > 1) {
+                pathComponents.last()
+            } else {
+                null
+            }
+
+        // Get the path to the resource in the bundle
+        val path =
+            bundle.pathForResource(fileName, fileExtension)
+                ?: throw IllegalArgumentException(
+                    "Resource not found: $resourcePath. Make sure the file is included in the iOS bundle.",
+                )
+
+        // Read the content of the file
+        val error =
+            memScoped {
+                val errorPtr = alloc<ObjCObjectVar<NSError?>>()
+                val content =
+                    NSString.stringWithContentsOfFile(
+                        path,
+                        encoding = NSUTF8StringEncoding,
+                        error = errorPtr.ptr,
+                    )
+
+                if (content != null) {
+                    return content.toString()
+                } else {
+                    val error = errorPtr.value
+                    throw IllegalArgumentException(
+                        "Failed to read resource: $resourcePath. Error: ${error?.localizedDescription}",
+                    )
+                }
+            }
+    }
+}
+
+/**
+ * iOS-specific helper function to read theme from bundle resources.
+ *
+ * @param resourceName The name of the resource file (without extension).
+ * @param fileExtension The file extension (e.g., "json").
+ * @return The text content of the resource file.
+ * @throws IllegalArgumentException If the resource is not found.
+ */
+fun readBundleResource(
+    resourceName: String,
+    fileExtension: String = "json",
+): String {
+    val bundle = NSBundle.mainBundle
+    val path =
+        bundle.pathForResource(resourceName, fileExtension)
+            ?: throw IllegalArgumentException(
+                "Resource not found: $resourceName.$fileExtension. Make sure the file is included in the iOS bundle.",
+            )
+
+    return memScoped {
+        val errorPtr = alloc<ObjCObjectVar<NSError?>>()
+        val content =
+            NSString.stringWithContentsOfFile(
+                path,
+                encoding = NSUTF8StringEncoding,
+                error = errorPtr.ptr,
+            )
+
+        if (content != null) {
+            content.toString()
+        } else {
+            val error = errorPtr.value
+            throw IllegalArgumentException(
+                "Failed to read resource: $resourceName.$fileExtension. Error: ${error?.localizedDescription}",
+            )
+        }
     }
 }
