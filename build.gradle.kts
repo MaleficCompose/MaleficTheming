@@ -9,13 +9,13 @@ val v: String by project
 val desc = "A Compose Multiplatform library for creating and managing material themes"
 
 plugins {
-    kotlin("multiplatform") version libs.versions.kotlin
-    kotlin("plugin.compose") version libs.versions.kotlin
     kotlin("plugin.serialization") version libs.versions.kotlin
+    kotlin("plugin.compose") version libs.versions.kotlin
+    kotlin("multiplatform") version libs.versions.kotlin
+    alias(libs.plugins.vanniktech.mavenPublish)
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.compose)
-    alias(libs.plugins.vanniktech.mavenPublish)
     alias(libs.plugins.dokka)
 }
 
