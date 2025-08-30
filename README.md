@@ -4,7 +4,7 @@
 
 ![Maven Central Version](https://img.shields.io/maven-central/v/xyz.malefic.compose/theming)
 
-> A Compose Multiplatform library for creating and managing material themes across JVM Desktop and iOS
+> A Kotlin Multiplatform library for creating and managing material themes in Jetpack Compose
 
 ## 🦿 Prerequisites
 
@@ -67,12 +67,6 @@ MaleficTheme(
 - ✅ **iOS** (Compose Multiplatform)
 - 🔄 **Android** (Jetpack Compose) - Coming soon
 
-## 🏗 Project Status
-
-| ![](https://i.giphy.com/media/7Sk1DclBgQoVyGCSPx/giphy.gif) |
-|:-----------------------------------------------------------:|
-|                     Under construction                      |
-
 ## ✍️ Author
 
 👤 **Om Gupta**
@@ -80,7 +74,7 @@ MaleficTheme(
 * Email: om@malefic.xyz
 * Github: [@OmyDaGreat](https://github.com/OmyDaGreat)
 
-Feel free to reach out 【ツ】
+Feel free to reach out! :D
 
 ## 🤝 Contributing
 

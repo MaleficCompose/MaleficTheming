@@ -1,4 +1,3 @@
-import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -6,22 +5,18 @@ val user = "MaleficCompose"
 val repo = "MaleficTheming"
 val g = "xyz.malefic.compose"
 val artifact = "theming"
-val v = "1.1.2"
+val v: String by project
 val desc = "A Compose Multiplatform library for creating and managing material themes"
 
-val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
-
 plugins {
-    alias(libs.plugins.kotlinMultiplatform)
+    kotlin("multiplatform") version libs.versions.kotlin
+    kotlin("plugin.compose") version libs.versions.kotlin
+    kotlin("plugin.serialization") version libs.versions.kotlin
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.compose.kotlin)
-    alias(libs.plugins.json.serial)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.compose)
-    alias(libs.plugins.central)
+    alias(libs.plugins.vanniktech.mavenPublish)
     alias(libs.plugins.dokka)
-    `maven-publish`
-    signing
 }
 
 group = g
@@ -110,56 +105,6 @@ android {
     }
 }
 
-publishing {
-    publications {
-        withType<MavenPublication> {
-            groupId = g
-            artifactId = if (name == "kotlinMultiplatform") artifact else "$artifact-$name"
-            version = v
-
-            pom {
-                name.set(repo)
-                description.set(desc)
-                url.set("https://github.com/$user/$repo")
-                developers {
-                    developer {
-                        name.set("Om Gupta")
-                        email.set("ogupta4242@gmail.com")
-                    }
-                }
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/$user/$repo.git")
-                    developerConnection.set("scm:git:ssh://github.com/$user/$repo.git")
-                    url.set("https://github.com/$user/$repo")
-                }
-            }
-        }
-    }
-    repositories {
-        maven {
-            url = localMavenRepo
-        }
-    }
-}
-
-signing {
-    useGpgCmd()
-    sign(publishing.publications)
-}
-
-centralPortalPlus {
-    url = localMavenRepo
-    username = System.getenv("centralPortalUsername") ?: ""
-    password = System.getenv("centralPortalPassword") ?: ""
-    publishingType = PublishingType.AUTOMATIC
-}
-
 tasks.apply {
     register("formatAndLintKotlin") {
         group = "formatting"
@@ -185,5 +130,49 @@ tasks.apply {
 dokka {
     dokkaPublications.html {
         outputDirectory.set(layout.buildDirectory.dir("dokka"))
+    }
+    pluginsConfiguration.html {
+        footerMessage.set("&copy; 2025 Om Gupta &lt;ogupta4242@gmail.com&gt;")
+    }
+}
+
+java {
+    withSourcesJar()
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+mavenPublishing {
+    publishToMavenCentral()
+
+    signAllPublications()
+
+    coordinates(g, artifact, v)
+
+    pom {
+        name = repo
+        description = desc
+        inceptionYear = "2025"
+        url = "https://github.com/$user/$repo"
+        licenses {
+            license {
+                name = "MIT License"
+                url = "https://mit.malefic.xyz"
+            }
+        }
+        developers {
+            developer {
+                name = "Om Gupta"
+                email = "ogupta4242@gmail.com"
+                url = "malefic.xyz"
+            }
+        }
+        scm {
+            url = "https://github.com/$user/$repo"
+            connection = "scm:git:git://github.com/$user/$repo.git"
+            developerConnection = "scm:git:ssh://github.com/$user/$repo.git"
+        }
     }
 }
