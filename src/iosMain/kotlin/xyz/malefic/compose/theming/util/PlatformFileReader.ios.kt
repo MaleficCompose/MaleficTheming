@@ -18,12 +18,12 @@ actual class PlatformFileReader {
         // val bundle = NSBundle.mainBundle()
         // val path = bundle.pathForResource(resourceName, ofType: "json")
         // val content = NSString.stringWithContentsOfFile(path!!, encoding = NSUTF8StringEncoding, error = null)
-        
+
         // For now, we'll throw an exception suggesting the use of loadThemeFromJsonString instead
         throw IllegalArgumentException(
             "Direct resource loading is not supported on iOS platform. " +
-            "Please use loadThemeFromJsonString() and provide the JSON content directly, " +
-            "or read the file content using iOS NSBundle and pass it to the function."
+                "Please use loadThemeFromJsonString() and provide the JSON content directly, " +
+                "or read the file content using iOS NSBundle and pass it to the function.",
         )
     }
 }

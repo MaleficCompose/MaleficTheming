@@ -92,10 +92,16 @@ kotlin {
 
 android {
     namespace = "xyz.malefic.compose.theming"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
+    compileSdk =
+        libs.versions.android.compileSdk
+            .get()
+            .toInt()
 
     defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
+        minSdk =
+            libs.versions.android.minSdk
+                .get()
+                .toInt()
     }
 
     compileOptions {
@@ -158,8 +164,8 @@ tasks.apply {
     register("formatAndLintKotlin") {
         group = "formatting"
         description = "Fix Kotlin code style deviations with kotlinter"
-        dependsOn(formatKotlin)
-        dependsOn(lintKotlin)
+        dependsOn(named("formatKotlin"))
+        dependsOn(named("lintKotlin"))
     }
     named("build") {
         dependsOn(named("formatAndLintKotlin"))
