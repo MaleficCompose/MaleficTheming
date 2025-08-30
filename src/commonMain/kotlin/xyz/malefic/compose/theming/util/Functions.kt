@@ -1,9 +1,6 @@
 package xyz.malefic.compose.theming.util
 
 import androidx.compose.ui.graphics.Color
-import kotlinx.serialization.json.Json
-import xyz.malefic.compose.theming.SerializableThemeConfig
-import xyz.malefic.compose.theming.ThemeConfig
 
 /**
  * Parses a hex color string and returns a Color object.
