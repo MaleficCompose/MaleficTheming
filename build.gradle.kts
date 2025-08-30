@@ -127,8 +127,6 @@ kotlin {
 }
 
 mavenPublishing {
-    configure(KotlinMultiplatform(JavadocJar.Dokka("dokkaGenerate"), sourcesJar = true))
-
     publishToMavenCentral()
 
     signAllPublications()
