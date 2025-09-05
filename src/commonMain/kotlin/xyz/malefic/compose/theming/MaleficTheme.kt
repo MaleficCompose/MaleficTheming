@@ -3,8 +3,77 @@ package xyz.malefic.compose.theming
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import xyz.malefic.compose.theming.util.loadThemeFromJsonString
 import xyz.malefic.compose.theming.util.loadThemeFromResource
+
+/**
+ * Creates a simple Material 3 theme configuration with basic colors.
+ * 
+ * This is a convenience function for easier migration from Material 2.
+ * It creates a complete Material 3 color scheme with sensible defaults.
+ * 
+ * @param primary The primary color
+ * @param secondary The secondary color  
+ * @param background The background color
+ * @param surface The surface color
+ * @param error The error color
+ * @param onPrimary Color used on primary
+ * @param onSecondary Color used on secondary
+ * @param onBackground Color used on background
+ * @param onSurface Color used on surface
+ * @param onError Color used on error
+ * @return A complete ThemeConfig for Material 3
+ */
+fun createSimpleThemeConfig(
+    primary: Color,
+    secondary: Color,
+    background: Color,
+    surface: Color,
+    error: Color,
+    onPrimary: Color,
+    onSecondary: Color,
+    onBackground: Color,
+    onSurface: Color,
+    onError: Color,
+): ThemeConfig = ThemeConfig(
+    primary = primary,
+    onPrimary = onPrimary,
+    primaryContainer = primary, // Default to same as primary
+    onPrimaryContainer = onPrimary,
+    secondary = secondary,
+    onSecondary = onSecondary,
+    secondaryContainer = secondary, // Default to same as secondary
+    onSecondaryContainer = onSecondary,
+    tertiary = secondary, // Default to secondary
+    onTertiary = onSecondary,
+    tertiaryContainer = secondary,
+    onTertiaryContainer = onSecondary,
+    error = error,
+    onError = onError,
+    errorContainer = error,
+    onErrorContainer = onError,
+    background = background,
+    onBackground = onBackground,
+    surface = surface,
+    onSurface = onSurface,
+    surfaceVariant = surface,
+    onSurfaceVariant = onSurface,
+    surfaceTint = primary,
+    outline = onSurface.copy(alpha = 0.12f),
+    outlineVariant = onSurface.copy(alpha = 0.06f),
+    scrim = Color.Black,
+    inverseSurface = onSurface,
+    inverseOnSurface = surface,
+    inversePrimary = primary,
+    surfaceDim = surface,
+    surfaceBright = surface,
+    surfaceContainerLowest = surface,
+    surfaceContainerLow = surface,
+    surfaceContainer = surface,
+    surfaceContainerHigh = surface,
+    surfaceContainerHighest = surface,
+)
 
 /**
  * Applies the Malefic theme using Material 3 design to the given content.
