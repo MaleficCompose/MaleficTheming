@@ -18,7 +18,7 @@ expect class PlatformFileReader() {
 }
 
 /**
- * Loads a theme configuration from a JSON string.
+ * Loads a theme configuration from a JSON string using Material 3 color scheme.
  *
  * @param jsonContent The JSON string containing the theme configuration.
  * @return A ThemeConfig object representing the loaded theme configuration.
@@ -28,23 +28,46 @@ fun loadThemeFromJsonString(jsonContent: String): ThemeConfig {
     val parsedConfig: SerializableThemeConfig = Json.decodeFromString(jsonContent)
     return ThemeConfig(
         primary = parseHexColor(parsedConfig.primary),
-        primaryVariant = parseHexColor(parsedConfig.primaryVariant),
-        secondary = parseHexColor(parsedConfig.secondary),
-        secondaryVariant = parseHexColor(parsedConfig.secondaryVariant),
-        background = parseHexColor(parsedConfig.background),
-        surface = parseHexColor(parsedConfig.surface),
-        error = parseHexColor(parsedConfig.error),
         onPrimary = parseHexColor(parsedConfig.onPrimary),
+        primaryContainer = parseHexColor(parsedConfig.primaryContainer),
+        onPrimaryContainer = parseHexColor(parsedConfig.onPrimaryContainer),
+        secondary = parseHexColor(parsedConfig.secondary),
         onSecondary = parseHexColor(parsedConfig.onSecondary),
-        onBackground = parseHexColor(parsedConfig.onBackground),
-        onSurface = parseHexColor(parsedConfig.onSurface),
+        secondaryContainer = parseHexColor(parsedConfig.secondaryContainer),
+        onSecondaryContainer = parseHexColor(parsedConfig.onSecondaryContainer),
+        tertiary = parseHexColor(parsedConfig.tertiary),
+        onTertiary = parseHexColor(parsedConfig.onTertiary),
+        tertiaryContainer = parseHexColor(parsedConfig.tertiaryContainer),
+        onTertiaryContainer = parseHexColor(parsedConfig.onTertiaryContainer),
+        error = parseHexColor(parsedConfig.error),
         onError = parseHexColor(parsedConfig.onError),
-        isLight = parsedConfig.isLight,
+        errorContainer = parseHexColor(parsedConfig.errorContainer),
+        onErrorContainer = parseHexColor(parsedConfig.onErrorContainer),
+        background = parseHexColor(parsedConfig.background),
+        onBackground = parseHexColor(parsedConfig.onBackground),
+        surface = parseHexColor(parsedConfig.surface),
+        onSurface = parseHexColor(parsedConfig.onSurface),
+        surfaceVariant = parseHexColor(parsedConfig.surfaceVariant),
+        onSurfaceVariant = parseHexColor(parsedConfig.onSurfaceVariant),
+        surfaceTint = parseHexColor(parsedConfig.surfaceTint),
+        outline = parseHexColor(parsedConfig.outline),
+        outlineVariant = parseHexColor(parsedConfig.outlineVariant),
+        scrim = parseHexColor(parsedConfig.scrim),
+        inverseSurface = parseHexColor(parsedConfig.inverseSurface),
+        inverseOnSurface = parseHexColor(parsedConfig.inverseOnSurface),
+        inversePrimary = parseHexColor(parsedConfig.inversePrimary),
+        surfaceDim = parseHexColor(parsedConfig.surfaceDim),
+        surfaceBright = parseHexColor(parsedConfig.surfaceBright),
+        surfaceContainerLowest = parseHexColor(parsedConfig.surfaceContainerLowest),
+        surfaceContainerLow = parseHexColor(parsedConfig.surfaceContainerLow),
+        surfaceContainer = parseHexColor(parsedConfig.surfaceContainer),
+        surfaceContainerHigh = parseHexColor(parsedConfig.surfaceContainerHigh),
+        surfaceContainerHighest = parseHexColor(parsedConfig.surfaceContainerHighest),
     )
 }
 
 /**
- * Loads a theme configuration from a platform-specific resource path.
+ * Loads a theme configuration from a platform-specific resource path using Material 3 color scheme.
  *
  * @param resourcePath The path to the resource containing the JSON theme configuration.
  * @return A ThemeConfig object representing the loaded theme configuration.

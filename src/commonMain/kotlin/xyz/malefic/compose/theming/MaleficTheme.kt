@@ -1,12 +1,13 @@
 package xyz.malefic.compose.theming
 
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import xyz.malefic.compose.theming.util.loadThemeFromJsonString
 import xyz.malefic.compose.theming.util.loadThemeFromResource
 
 /**
- * Applies the Malefic theme to the given content.
+ * Applies the Malefic theme using Material 3 design to the given content.
  *
  * @param themeConfig The configuration for the theme.
  * @param content The composable content to which the theme will be applied.
@@ -17,22 +18,44 @@ fun MaleficTheme(
     content: @Composable () -> Unit,
 ) {
     MaterialTheme(
-        colors =
-            MaterialTheme.colors.copy(
-                primary = themeConfig.primary,
-                primaryVariant = themeConfig.primaryVariant,
-                secondary = themeConfig.secondary,
-                secondaryVariant = themeConfig.secondaryVariant,
-                background = themeConfig.background,
-                surface = themeConfig.surface,
-                error = themeConfig.error,
-                onPrimary = themeConfig.onPrimary,
-                onSecondary = themeConfig.onSecondary,
-                onBackground = themeConfig.onBackground,
-                onSurface = themeConfig.onSurface,
-                onError = themeConfig.onError,
-                isLight = themeConfig.isLight,
-            ),
+        colorScheme = ColorScheme(
+            primary = themeConfig.primary,
+            onPrimary = themeConfig.onPrimary,
+            primaryContainer = themeConfig.primaryContainer,
+            onPrimaryContainer = themeConfig.onPrimaryContainer,
+            inversePrimary = themeConfig.inversePrimary,
+            secondary = themeConfig.secondary,
+            onSecondary = themeConfig.onSecondary,
+            secondaryContainer = themeConfig.secondaryContainer,
+            onSecondaryContainer = themeConfig.onSecondaryContainer,
+            tertiary = themeConfig.tertiary,
+            onTertiary = themeConfig.onTertiary,
+            tertiaryContainer = themeConfig.tertiaryContainer,
+            onTertiaryContainer = themeConfig.onTertiaryContainer,
+            background = themeConfig.background,
+            onBackground = themeConfig.onBackground,
+            surface = themeConfig.surface,
+            onSurface = themeConfig.onSurface,
+            surfaceVariant = themeConfig.surfaceVariant,
+            onSurfaceVariant = themeConfig.onSurfaceVariant,
+            surfaceTint = themeConfig.surfaceTint,
+            inverseSurface = themeConfig.inverseSurface,
+            inverseOnSurface = themeConfig.inverseOnSurface,
+            error = themeConfig.error,
+            onError = themeConfig.onError,
+            errorContainer = themeConfig.errorContainer,
+            onErrorContainer = themeConfig.onErrorContainer,
+            outline = themeConfig.outline,
+            outlineVariant = themeConfig.outlineVariant,
+            scrim = themeConfig.scrim,
+            surfaceBright = themeConfig.surfaceBright,
+            surfaceDim = themeConfig.surfaceDim,
+            surfaceContainer = themeConfig.surfaceContainer,
+            surfaceContainerHigh = themeConfig.surfaceContainerHigh,
+            surfaceContainerHighest = themeConfig.surfaceContainerHighest,
+            surfaceContainerLow = themeConfig.surfaceContainerLow,
+            surfaceContainerLowest = themeConfig.surfaceContainerLowest,
+        ),
         typography = MaterialTheme.typography,
         shapes = MaterialTheme.shapes,
         content = content,
