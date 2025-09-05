@@ -35,31 +35,33 @@ class TestComposeUI {
         var isLightTheme by remember { mutableStateOf(true) }
 
         // Create theme configurations for light and dark themes
-        val lightTheme = createSimpleThemeConfig(
-            primary = parseHexColor("#FF6200EE"),
-            secondary = parseHexColor("#FF03DAC6"),
-            background = Color.White,
-            surface = Color.White,
-            error = parseHexColor("#FFB00020"),
-            onPrimary = Color.White,
-            onSecondary = Color.Black,
-            onBackground = Color.Black,
-            onSurface = Color.Black,
-            onError = Color.White,
-        )
+        val lightTheme =
+            createSimpleThemeConfig(
+                primary = parseHexColor("#FF6200EE"),
+                secondary = parseHexColor("#FF03DAC6"),
+                background = Color.White,
+                surface = Color.White,
+                error = parseHexColor("#FFB00020"),
+                onPrimary = Color.White,
+                onSecondary = Color.Black,
+                onBackground = Color.Black,
+                onSurface = Color.Black,
+                onError = Color.White,
+            )
 
-        val darkTheme = createSimpleThemeConfig(
-            primary = parseHexColor("#FFBB86FC"),
-            secondary = parseHexColor("#FF03DAC6"),
-            background = parseHexColor("#FF121212"),
-            surface = parseHexColor("#FF121212"),
-            error = parseHexColor("#FFCF6679"),
-            onPrimary = Color.Black,
-            onSecondary = Color.Black,
-            onBackground = Color.White,
-            onSurface = Color.White,
-            onError = Color.Black,
-        )
+        val darkTheme =
+            createSimpleThemeConfig(
+                primary = parseHexColor("#FFBB86FC"),
+                secondary = parseHexColor("#FF03DAC6"),
+                background = parseHexColor("#FF121212"),
+                surface = parseHexColor("#FF121212"),
+                error = parseHexColor("#FFCF6679"),
+                onPrimary = Color.Black,
+                onSecondary = Color.Black,
+                onBackground = Color.White,
+                onSurface = Color.White,
+                onError = Color.Black,
+            )
 
         val currentTheme = if (isLightTheme) lightTheme else darkTheme
 

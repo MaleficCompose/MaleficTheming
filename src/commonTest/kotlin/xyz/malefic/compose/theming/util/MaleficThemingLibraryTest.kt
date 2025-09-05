@@ -87,18 +87,19 @@ class MaleficThemingLibraryTest {
         // and that the library is ready for release
 
         // 1. JSON parsing works (using createSimpleThemeConfig for easier testing)
-        val manualTheme = createSimpleThemeConfig(
-            primary = parseHexColor("#FF0000"),
-            secondary = parseHexColor("#00FF00"),
-            background = parseHexColor("#FFFFFF"),
-            surface = parseHexColor("#FFFFFF"),
-            error = parseHexColor("#FF0000"),
-            onPrimary = parseHexColor("#FFFFFF"),
-            onSecondary = parseHexColor("#000000"),
-            onBackground = parseHexColor("#000000"),
-            onSurface = parseHexColor("#000000"),
-            onError = parseHexColor("#FFFFFF"),
-        )
+        val manualTheme =
+            createSimpleThemeConfig(
+                primary = parseHexColor("#FF0000"),
+                secondary = parseHexColor("#00FF00"),
+                background = parseHexColor("#FFFFFF"),
+                surface = parseHexColor("#FFFFFF"),
+                error = parseHexColor("#FF0000"),
+                onPrimary = parseHexColor("#FFFFFF"),
+                onSecondary = parseHexColor("#000000"),
+                onBackground = parseHexColor("#000000"),
+                onSurface = parseHexColor("#000000"),
+                onError = parseHexColor("#FFFFFF"),
+            )
         assertNotNull(manualTheme)
 
         // 2. Platform file reader exists

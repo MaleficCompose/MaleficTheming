@@ -62,18 +62,19 @@ class ThemeConfigTest {
 
     @Test
     fun testCreateSimpleThemeConfig() {
-        val themeConfig = createSimpleThemeConfig(
-            primary = parseHexColor("#FF6200EE"),
-            secondary = parseHexColor("#FF03DAC6"),
-            background = parseHexColor("#FFFFFFFF"),
-            surface = parseHexColor("#FFFFFFFF"),
-            error = parseHexColor("#FFB00020"),
-            onPrimary = parseHexColor("#FFFFFFFF"),
-            onSecondary = parseHexColor("#FF000000"),
-            onBackground = parseHexColor("#FF000000"),
-            onSurface = parseHexColor("#FF000000"),
-            onError = parseHexColor("#FFFFFFFF"),
-        )
+        val themeConfig =
+            createSimpleThemeConfig(
+                primary = parseHexColor("#FF6200EE"),
+                secondary = parseHexColor("#FF03DAC6"),
+                background = parseHexColor("#FFFFFFFF"),
+                surface = parseHexColor("#FFFFFFFF"),
+                error = parseHexColor("#FFB00020"),
+                onPrimary = parseHexColor("#FFFFFFFF"),
+                onSecondary = parseHexColor("#FF000000"),
+                onBackground = parseHexColor("#FF000000"),
+                onSurface = parseHexColor("#FF000000"),
+                onError = parseHexColor("#FFFFFFFF"),
+            )
 
         assertNotNull(themeConfig)
         assertTrue(themeConfig.primary.value != 0UL)
