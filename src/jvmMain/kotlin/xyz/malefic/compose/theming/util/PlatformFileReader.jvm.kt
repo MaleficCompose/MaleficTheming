@@ -14,6 +14,7 @@ actual class PlatformFileReader {
      * @return The text content of the resource or file.
      */
     actual fun readText(resourcePath: String): String {
+        require(resourcePath.isNotBlank()) { "Resource path must not be empty or blank." }
         val inputStream: InputStream =
             this::class.java.getResourceAsStream(resourcePath)
                 ?: throw IllegalArgumentException("Resource not found: $resourcePath")

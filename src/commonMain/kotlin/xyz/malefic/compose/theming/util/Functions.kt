@@ -25,3 +25,5 @@ fun parseHexColor(hex: String): Color {
         else -> throw IllegalArgumentException("Invalid color hex string: $hex")
     }
 }
+
+expect fun currentPlatform(): String

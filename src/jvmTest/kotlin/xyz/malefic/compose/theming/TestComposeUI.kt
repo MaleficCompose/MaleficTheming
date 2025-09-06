@@ -17,10 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import xyz.malefic.compose.theming.util.parseHexColor
-import kotlin.test.Test
 
 class TestComposeUI {
-    // @Test  // Commented out as this is a GUI test that requires a display
     fun manualThemeToggleTest() {
         application {
             Window(title = "Test Composable UI: Theme Toggle", onCloseRequest = ::exitApplication) {
@@ -29,7 +27,6 @@ class TestComposeUI {
         }
     }
 
-    @Suppress("ktlint:standard:function-naming")
     @Composable
     fun ThemeToggleExampleComposable() {
         var isLightTheme by remember { mutableStateOf(true) }

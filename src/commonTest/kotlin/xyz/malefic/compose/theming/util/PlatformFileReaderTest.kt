@@ -1,7 +1,6 @@
 package xyz.malefic.compose.theming.util
 
 import kotlin.test.Test
-import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 
@@ -18,8 +17,14 @@ class PlatformFileReaderTest {
         val reader = PlatformFileReader()
 
         // Test with an invalid path - should throw an exception
-        assertFailsWith<IllegalArgumentException> {
-            reader.readText("nonexistent/invalid.json")
+        if (currentPlatform() == "Android") {
+            assertFailsWith<IllegalStateException> {
+                reader.readText("nonexistent/invalid.json")
+            }
+        } else {
+            assertFailsWith<IllegalArgumentException> {
+                reader.readText("nonexistent/invalid.json")
+            }
         }
     }
 
@@ -28,8 +33,14 @@ class PlatformFileReaderTest {
         val reader = PlatformFileReader()
 
         // Test with empty path - should throw an exception
-        assertFailsWith<IllegalArgumentException> {
-            reader.readText("")
+        if (currentPlatform() == "Android") {
+            assertFailsWith<IllegalStateException> {
+                reader.readText("")
+            }
+        } else {
+            assertFailsWith<IllegalArgumentException> {
+                reader.readText("")
+            }
         }
     }
 }

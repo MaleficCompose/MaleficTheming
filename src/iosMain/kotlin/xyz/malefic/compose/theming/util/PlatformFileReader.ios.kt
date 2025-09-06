@@ -19,17 +19,12 @@ import platform.Foundation.stringWithContentsOfFile
 actual class PlatformFileReader {
     /**
      * Reads text content from an iOS bundle resource.
-     * For iOS, this function reads from the main bundle.
      *
      * @param resourcePath The path to the resource file (e.g., "light.json").
      * @return The text content of the resource file.
      * @throws IllegalArgumentException If the resource is not found.
      */
-    @OptIn(ExperimentalForeignApi::class, BetaInteropApi::class)
     actual fun readText(resourcePath: String): String {
-        val bundle = NSBundle.mainBundle
-
-        // Extract filename and extension
         val pathComponents = resourcePath.split(".")
         val fileName =
             if (pathComponents.size > 1) {
@@ -41,35 +36,9 @@ actual class PlatformFileReader {
             if (pathComponents.size > 1) {
                 pathComponents.last()
             } else {
-                null
+                "json"
             }
-
-        // Get the path to the resource in the bundle
-        val path =
-            bundle.pathForResource(fileName, fileExtension)
-                ?: throw IllegalArgumentException(
-                    "Resource not found: $resourcePath. Make sure the file is included in the iOS bundle.",
-                )
-
-        // Read the content of the file
-        memScoped {
-            val errorPtr = alloc<ObjCObjectVar<NSError?>>()
-            val content =
-                NSString.stringWithContentsOfFile(
-                    path,
-                    encoding = NSUTF8StringEncoding,
-                    error = errorPtr.ptr,
-                )
-
-            if (content != null) {
-                return content
-            } else {
-                val error = errorPtr.value
-                throw IllegalArgumentException(
-                    "Failed to read resource: $resourcePath. Error: ${error?.localizedDescription}",
-                )
-            }
-        }
+        return readBundleResource(fileName, fileExtension)
     }
 }
 
@@ -103,7 +72,7 @@ fun readBundleResource(
             )
 
         if (content != null) {
-            content.toString()
+            content
         } else {
             val error = errorPtr.value
             throw IllegalArgumentException(
