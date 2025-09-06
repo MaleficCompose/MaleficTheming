@@ -36,7 +36,6 @@ actual class PlatformFileReader {
      * @param context The Application Context (never Activity/Fragment).
      */
     fun init(context: Context) {
-        // Defensive: Only allow Application Context
         this.context = context.applicationContext
     }
 
@@ -48,21 +47,13 @@ actual class PlatformFileReader {
      * @return The text content of the asset file.
      * @throws IllegalArgumentException If the asset is not found or context is not initialized.
      */
-    actual fun readText(resourcePath: String): String {
-        val ctx =
+    actual fun readText(resourcePath: String): String =
+        readThemeAsset(
             context ?: throw IllegalStateException(
                 "PlatformFileReader not initialized. Call init(context) with Application Context before use.",
-            )
-        try {
-            val inputStream = ctx.assets.open(resourcePath)
-            return inputStream.bufferedReader().use { it.readText() }
-        } catch (e: Exception) {
-            throw IllegalArgumentException(
-                "Failed to read asset: $resourcePath. Make sure the file exists in the assets folder.",
-                e,
-            )
-        }
-    }
+            ),
+            resourcePath,
+        )
 }
 
 /**

@@ -8,19 +8,14 @@ class PlatformFileReaderIntegrationTest {
     @Test
     fun testPlatformSpecificExceptionMessages() {
         val reader = PlatformFileReader()
-
-        // Test that platform-specific implementations throw appropriate exceptions
-        // when context/bundle resources are not available
         val exception =
-            assertFailsWith<IllegalArgumentException> {
-                reader.readText("nonexistent.json")
+            if (currentPlatform() == "Android") {
+                assertFailsWith<IllegalStateException> { reader.readText("nonexistent.json") }
+            } else {
+                assertFailsWith<IllegalArgumentException> { reader.readText("nonexistent.json") }
             }
-
-        // Verify that the exception message is platform-specific and helpful
         assertTrue(
-            exception.message?.contains("Context") == true || // Android
-                exception.message?.contains("bundle") == true || // iOS
-                exception.message?.contains("Resource not found") == true, // JVM
+            listOf("Context", "bundle", "Resource not found").any { exception.message?.contains(it) == true },
             "Exception message should be platform-specific: ${exception.message}",
         )
     }
