@@ -42,6 +42,18 @@ import kotlinx.serialization.Serializable
  * @property surfaceContainer The surface container color of the theme.
  * @property surfaceContainerHigh The high surface container color of the theme.
  * @property surfaceContainerHighest The highest surface container color of the theme.
+ * @property primaryFixed The primary fixed color of the theme.
+ * @property primaryFixedDim The dim primary fixed color of the theme.
+ * @property onPrimaryFixed The color used for text and icons displayed on top of the primary fixed color.
+ * @property onPrimaryFixedVariant The color used for text and icons displayed on top of the primary fixed variant.
+ * @property secondaryFixed The secondary fixed color of the theme.
+ * @property secondaryFixedDim The dim secondary fixed color of the theme.
+ * @property onSecondaryFixed The color used for text and icons displayed on top of the secondary fixed color.
+ * @property onSecondaryFixedVariant The color used for text and icons displayed on top of the secondary fixed variant.
+ * @property tertiaryFixed The tertiary fixed color of the theme.
+ * @property tertiaryFixedDim The dim tertiary fixed color of the theme.
+ * @property onTertiaryFixed The color used for text and icons displayed on top of the tertiary fixed color.
+ * @property onTertiaryFixedVariant The color used for text and icons displayed on top of the tertiary fixed variant.
  */
 data class ThemeConfig(
     val primary: Color,
@@ -80,6 +92,18 @@ data class ThemeConfig(
     val surfaceContainer: Color,
     val surfaceContainerHigh: Color,
     val surfaceContainerHighest: Color,
+    val primaryFixed: Color,
+    val primaryFixedDim: Color,
+    val onPrimaryFixed: Color,
+    val onPrimaryFixedVariant: Color,
+    val secondaryFixed: Color,
+    val secondaryFixedDim: Color,
+    val onSecondaryFixed: Color,
+    val onSecondaryFixedVariant: Color,
+    val tertiaryFixed: Color,
+    val tertiaryFixedDim: Color,
+    val onTertiaryFixed: Color,
+    val onTertiaryFixedVariant: Color,
 )
 
 /**
@@ -123,6 +147,18 @@ data class ThemeConfig(
  * @property surfaceContainer The surface container color of the theme as a string.
  * @property surfaceContainerHigh The high surface container color of the theme as a string.
  * @property surfaceContainerHighest The highest surface container color of the theme as a string.
+ * @property primaryFixed The primary fixed color of the theme as a string.
+ * @property primaryFixedDim The dim primary fixed color of the theme as a string.
+ * @property onPrimaryFixed The color used for text and icons displayed on top of the primary fixed color as a string.
+ * @property onPrimaryFixedVariant The color used for text and icons displayed on top of the primary fixed variant as a string.
+ * @property secondaryFixed The secondary fixed color of the theme as a string.
+ * @property secondaryFixedDim The dim secondary fixed color of the theme as a string.
+ * @property onSecondaryFixed The color used for text and icons displayed on top of the secondary fixed color as a string.
+ * @property onSecondaryFixedVariant The color used for text and icons displayed on top of the secondary fixed variant as a string.
+ * @property tertiaryFixed The tertiary fixed color of the theme as a string.
+ * @property tertiaryFixedDim The dim tertiary fixed color of the theme as a string.
+ * @property onTertiaryFixed The color used for text and icons displayed on top of the tertiary fixed color as a string.
+ * @property onTertiaryFixedVariant The color used for text and icons displayed on top of the tertiary fixed variant as a string.
  */
 @Serializable
 data class SerializableThemeConfig(
@@ -162,4 +198,16 @@ data class SerializableThemeConfig(
     val surfaceContainer: String,
     val surfaceContainerHigh: String,
     val surfaceContainerHighest: String,
+    val primaryFixed: String,
+    val primaryFixedDim: String,
+    val onPrimaryFixed: String,
+    val onPrimaryFixedVariant: String,
+    val secondaryFixed: String,
+    val secondaryFixedDim: String,
+    val onSecondaryFixed: String,
+    val onSecondaryFixedVariant: String,
+    val tertiaryFixed: String,
+    val tertiaryFixedDim: String,
+    val onTertiaryFixed: String,
+    val onTertiaryFixedVariant: String,
 )

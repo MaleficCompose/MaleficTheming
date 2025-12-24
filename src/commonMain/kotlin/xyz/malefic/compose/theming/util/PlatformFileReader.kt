@@ -63,6 +63,18 @@ fun loadThemeFromJsonString(jsonContent: String): ThemeConfig {
         surfaceContainer = parseHexColor(parsedConfig.surfaceContainer),
         surfaceContainerHigh = parseHexColor(parsedConfig.surfaceContainerHigh),
         surfaceContainerHighest = parseHexColor(parsedConfig.surfaceContainerHighest),
+        primaryFixed = parseHexColor(parsedConfig.primaryFixed),
+        primaryFixedDim = parseHexColor(parsedConfig.primaryFixedDim),
+        onPrimaryFixed = parseHexColor(parsedConfig.onPrimaryFixed),
+        onPrimaryFixedVariant = parseHexColor(parsedConfig.onPrimaryFixedVariant),
+        secondaryFixed = parseHexColor(parsedConfig.secondaryFixed),
+        secondaryFixedDim = parseHexColor(parsedConfig.secondaryFixedDim),
+        onSecondaryFixed = parseHexColor(parsedConfig.onSecondaryFixed),
+        onSecondaryFixedVariant = parseHexColor(parsedConfig.onSecondaryFixedVariant),
+        tertiaryFixed = parseHexColor(parsedConfig.tertiaryFixed),
+        tertiaryFixedDim = parseHexColor(parsedConfig.tertiaryFixedDim),
+        onTertiaryFixed = parseHexColor(parsedConfig.onTertiaryFixed),
+        onTertiaryFixedVariant = parseHexColor(parsedConfig.onTertiaryFixedVariant),
     )
 }
 
