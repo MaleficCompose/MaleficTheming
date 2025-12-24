@@ -18,15 +18,7 @@ import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import xyz.malefic.compose.theming.util.parseHexColor
 
-class TestComposeUI {
-    fun manualThemeToggleTest() {
-        application {
-            Window(title = "Test Composable UI: Theme Toggle", onCloseRequest = ::exitApplication) {
-                ThemeToggleExampleComposable()
-            }
-        }
-    }
-
+object TestComposeUI {
     @Composable
     fun ThemeToggleExampleComposable() {
         var isLightTheme by remember { mutableStateOf(true) }
@@ -80,3 +72,10 @@ class TestComposeUI {
         }
     }
 }
+
+fun main() =
+    application {
+        Window(title = "Test Composable UI: Theme Toggle", onCloseRequest = ::exitApplication) {
+            TestComposeUI.ThemeToggleExampleComposable()
+        }
+    }

@@ -1,5 +1,7 @@
-package xyz.malefic.compose.theming.util
+package xyz.malefic.compose.theming
 
+import xyz.malefic.compose.theming.util.PlatformFileReader
+import xyz.malefic.compose.theming.util.currentPlatform
 import kotlin.test.Test
 import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
