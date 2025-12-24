@@ -1,9 +1,9 @@
 [versions]
-agp = "8.11.1"
+agp = "8.13.2"
 dokka = "2.1.0"
 json = "1.9.0"
 compose = "1.9.3"
-kotlin = "2.2.10"
+kotlin = "2.3.0"
 kotlinter = "5.3.0"
 android-minSdk = "24"
 android-compileSdk = "36"
@@ -13,8 +13,8 @@ vanniktech = "0.35.0"
 json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "json" }
 
 [plugins]
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
+android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
-vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }

@@ -1,7 +1,5 @@
-import com.vanniktech.maven.publish.JavadocJar
-import com.vanniktech.maven.publish.KotlinMultiplatform
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import com.android.build.api.dsl.androidLibrary
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
 
 val user = "MaleficCompose"
 val repo = "MaleficTheming"
@@ -14,8 +12,8 @@ plugins {
     kotlin("plugin.serialization") version libs.versions.kotlin
     kotlin("plugin.compose") version libs.versions.kotlin
     kotlin("multiplatform") version libs.versions.kotlin
-    alias(libs.plugins.vanniktech.mavenPublish)
-    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.maven.publish)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.compose)
     alias(libs.plugins.dokka)
@@ -33,10 +31,25 @@ repositories {
 kotlin {
     jvm()
 
-    androidTarget {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+    androidLibrary {
+        namespace = "$g.$artifact"
+        compileSdk =
+            libs.versions.android.compileSdk
+                .get()
+                .toInt()
+        minSdk =
+            libs.versions.android.minSdk
+                .get()
+                .toInt()
+
+        withJava()
+        withHostTestBuilder {}.configure {}
+        withDeviceTestBuilder {
+            sourceSetTreeName = "test"
+        }
+
         compilerOptions {
-            jvmTarget.set(JvmTarget.JVM_1_8)
+            jvmTarget.set(JVM_11)
         }
     }
 
@@ -64,26 +77,6 @@ kotlin {
         iosMain.dependencies {
             implementation(compose.material3)
         }
-    }
-}
-
-android {
-    namespace = "xyz.malefic.compose.theming"
-    compileSdk =
-        libs.versions.android.compileSdk
-            .get()
-            .toInt()
-
-    defaultConfig {
-        minSdk =
-            libs.versions.android.minSdk
-                .get()
-                .toInt()
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
