@@ -1,7 +1,6 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 $dokka.location:xyz.malefic.compose.theming.util////PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/index.html
-$dokka.location:xyz.malefic.compose.theming.util//currentPlatform/#/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/current-platform.html
 $dokka.location:xyz.malefic.compose.theming.util//loadThemeFromJson/#java.io.InputStream/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/load-theme-from-json.html
 $dokka.location:xyz.malefic.compose.theming.util//loadThemeFromJsonString/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/load-theme-from-json-string.html
 $dokka.location:xyz.malefic.compose.theming.util//loadThemeFromResource/#kotlin.String/PointingToDeclaration/-malefic-theming/xyz.malefic.compose.theming.util/load-theme-from-resource.html
