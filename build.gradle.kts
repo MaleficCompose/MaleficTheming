@@ -1,7 +1,7 @@
 import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
 
-val user = "MaleficCompose"
+val user = "OmyDaGreat"
 val repo = "MaleficTheming"
 val g = "xyz.malefic.compose"
 val artifact = "theming"
